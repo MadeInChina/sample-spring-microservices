@@ -17,7 +17,6 @@ node('docker') {
         stage('Image') {
             dir ('discovery-service') {
                 def app = docker.build "slamhan/discovery-service:${env.version}"
-                // requested access to the resource is denied app.push()
             }
         }
 
