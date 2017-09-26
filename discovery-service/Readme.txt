@@ -18,5 +18,7 @@ up
   --upgrade, -u, --recreate	Upgrade if service has changed
 -p
   --pull, -p Before doing the upgrade do an image pull on all hosts that have the image already
+-c
+  --confirm-upgrade, -c	Confirm that the upgrade was success and delete old containers
 -d
  -d	Do not block and log
