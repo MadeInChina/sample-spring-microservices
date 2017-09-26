@@ -1,4 +1,4 @@
-node('docker') {
+node {
 
     withMaven(maven:'maven') {
 
@@ -16,7 +16,8 @@ node('docker') {
 
         stage('Image') {
             dir ('discovery-service') {
-                def app = docker.build "slamhan/discovery-service:${env.version}"
+                def app = docker.build "slamhan/discovery-service:${env.version}-${env.BUILD_NUMBER}"
+                // requested access to the resource is denied app.push()
             }
         }
 
