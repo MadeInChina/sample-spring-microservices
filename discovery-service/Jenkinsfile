@@ -16,13 +16,17 @@ node {
 
         stage('Image') {
             dir ('discovery-service') {
-                def app = docker.build "slamhan/discovery-service:${env.version}-${env.BUILD_NUMBER}"
+                //def app = docker.build "slamhan/discovery-service:${env.version}-${env.BUILD_NUMBER}"
+                def app = docker.build "slamhan/discovery-service:latest
                 // requested access to the resource is denied app.push()
             }
         }
 
-        stage ('Run') {
-            docker.image("slamhan/discovery-service:${env.version}").run('-p 8761:8761 -h discovery --name discovery')
+        stage ('Upgrade') {
+            dir ('discovery-service') {
+            sh 'rancher-compose docker-compose.yml --url http://192.168.2.34:8888/v2-beta/projects/1a5  --access-key 49351B9F554343DA1149 --secret-key zq5ucfRQGDGhHaV7Cr2dCsptCenE8gvyuSQiwwe8 up --upgrade --confirm-upgrade'
+            //docker.image("slamhan/discovery-service:${env.version}-${env.BUILD_NUMBER}").run('-p 8761:8761 -h discovery --name discovery')
+            }
         }
 
         stage ('Final') {
