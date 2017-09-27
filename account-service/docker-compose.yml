@@ -4,3 +4,5 @@ services:
     image: slamhan/account-service:latest
     ports:
     - 2222:2222/tcp
+    links:
+    - discovery-service
