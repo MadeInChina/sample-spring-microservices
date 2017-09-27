@@ -1,8 +1,14 @@
 version: '2'
 services:
+  discovery-service:
+    image: slamhan/discovery-service:latest
+    stdin_open: true
+    tty: true
+    ports:
+    - 8761:8761/tcp
   account-service:
     image: slamhan/account-service:latest
     ports:
     - 2222:2222/tcp
     links:
-    - discovery-service:discovery-service
+    - discovery-service
