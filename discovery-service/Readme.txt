@@ -14,6 +14,9 @@ up --upgrade -p -c -d
 up
   up    Bring all services up
 
+--force-upgrade
+  Force an upgrade even though the docker-compose.yml for the services didn't change
+
 --upgrade
   --upgrade, -u, --recreate	Upgrade if service has changed
 -p
