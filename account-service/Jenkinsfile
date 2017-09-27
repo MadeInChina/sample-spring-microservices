@@ -23,16 +23,14 @@ node {
 
         stage ('Upgrade') {
          dir ('account-service') {
-            sh 'rancher-compose --url http://192.168.2.34:8888/v2-beta/projects/1a5  --access-key DE6451A54AEFC2A7D0F0 --secret-key fEnzGyqJR23ZAbdAxb7413R4iu3mjATs7VVPnk7W -f docker-compose.yml -p Applications up account-service --upgrade -p -c -d'
+            sh 'rancher-compose --url http://192.168.2.34:8888/v2-beta/projects/1a5  --access-key DE6451A54AEFC2A7D0F0 --secret-key fEnzGyqJR23ZAbdAxb7413R4iu3mjATs7VVPnk7W -f ../docker-compose.yml -p Applications up account-service --upgrade -p -c -d'
             //docker.image("localhost:5000/account-service:${env.version}").run('-p 2222:2222 -h account --name account --link discovery')
            }
         }
-        /**
+
         stage ('Final') {
             build job: 'customer-service-pipeline', wait: false
         }
-        **/
-
     }
 
 }
