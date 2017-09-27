@@ -29,7 +29,7 @@ node {
             }
         }
         stage ('Final') {
-            build job: 'account-service-pipeline', wait: true
+            build job: 'account-service-pipeline', wait: false
         }      
     }
 
