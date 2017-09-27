@@ -28,11 +28,9 @@ node {
             //docker.image("slamhan/discovery-service:${env.version}-${env.BUILD_NUMBER}").run('-p 8761:8761 -h discovery --name discovery')
             }
         }
-        /**
         stage ('Final') {
             build job: 'account-service-pipeline', wait: false
         }      
-        **/
     }
 
 }
