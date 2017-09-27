@@ -5,4 +5,4 @@ services:
     ports:
     - 2222:2222/tcp
     links:
-    - discovery-service
+    - discovery-service:discovery-service
