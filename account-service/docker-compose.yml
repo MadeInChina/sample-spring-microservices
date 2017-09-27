@@ -1,0 +1,6 @@
+version: '2'
+services:
+  account-service:
+    image: slamhan/account-service:latest
+    ports:
+    - 2222:2222/tcp
